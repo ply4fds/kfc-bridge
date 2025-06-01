@@ -1,95 +1,52 @@
-<!-- KFC $1000 Gift Card Giveaway Bridge -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Win a $1000 KFC Gift Card — Limited Time!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Win a $1000 KFC Gift Card</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #fff8f0;
-      color: #bf360c;
       text-align: center;
-      padding: 40px;
-    }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: #fff3e0;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(191, 54, 12, 0.3);
+      padding: 60px 20px;
+      background-color: #fffbea;
     }
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+      font-size: 2em;
+      color: #d62300;
     }
     p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
+      font-size: 1.2em;
+      color: #333;
     }
     .button {
-      background: #d84315;
-      color: white;
-      padding: 18px 45px;
-      font-size: 1.5rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
       display: inline-block;
-      transition: background 0.3s ease;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background-color: #d62300;
+      color: #fff;
+      font-size: 1.2em;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
     }
     .button:hover {
-      background: #bf360c;
-    }
-    .countdown {
-      font-size: 2rem;
-      color: #d84315;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    .comments {
-      margin-top: 30px;
-      text-align: left;
-      font-size: 1rem;
-    }
-    .comment {
-      background: #ffebee;
-      margin-bottom: 12px;
-      padding: 10px;
-      border-radius: 8px;
-      box-shadow: 1px 1px 3px rgba(191, 54, 12, 0.15);
+      background-color: #ff4500;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎉 Win a $1000 KFC Gift Card!</h1>
-    <p>Hurry! Complete a quick survey to claim your chance at a massive KFC giveaway.</p>
-    <p class="countdown">Offer expires in: <span id="timer">03:00</span></p>
-    <a href="https://mobtrk.link/view.php?id=5539922&pub=3273045" target="_blank" class="button">Claim Your KFC Gift Card Now</a>
-    <div class="comments">
-      <h3>Recent Winners Say:</h3>
-      <div class="comment"><strong>Sam W:</strong> “Got my gift card in 24 hours! Highly recommend!”</div>
-      <div class="comment"><strong>Lily M:</strong> “So easy and fun, I’m sharing with friends.”</div>
-      <div class="comment"><strong>Jake T:</strong> “Never thought I’d win something like this!”</div>
-    </div>
-  </div>
+
+  <h1>🍗 Win a $1000 KFC Gift Card!</h1>
+  <p>Click the button below to claim your chance at a $1000 KFC gift card. Limited time offer for lucky users!</p>
+
+  <a href="#" onclick="redirectUser()" class="button">Claim Your KFC Gift Card Now</a>
+
   <script>
-    // Countdown timer script
-    let timeLeft = 180;
-    const timerEl = document.getElementById('timer');
-    setInterval(() => {
-      if(timeLeft > 0){
-        timeLeft--;
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
-        timerEl.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-      } else {
-        timerEl.textContent = 'EXPIRED';
-      }
-    }, 1000);
+    function redirectUser() {
+      window.location.href = "https://mobtrk.link/view.php?id=5539922&pub=3273045";
+    }
   </script>
+
 </body>
 </html>
