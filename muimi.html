@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KFC Gift Voucher</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff6f6;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .header {
+      background: #d62828;
+      color: white;
+      padding: 1.5rem;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: left;
+      padding-left: 2rem;
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #222;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .button {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background-color: #ef233c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #d90429;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    select {
+      padding: 0.8rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">KFC</div>
+
+  <div class="container" id="step1">
+    <h1>🎉 You’ve Been Selected for a KFC Voucher!</h1>
+    <p>Select your nearest hometown to check eligibility in this limited worldwide campaign:</p>
+    <button class="button" onclick="showTownSelection()">Select Hometown</button>
+  </div>
+
+  <div class="container hidden" id="step2">
+    <h1>Select Your Nearest Town</h1>
+    <select id="townSelect">
+      <option value="">-- Choose your town --</option>
+      <option>Nairobi</option>
+      <option>Mombasa</option>
+      <option>Kisumu</option>
+      <option>Nakuru</option>
+      <option>Eldoret</option>
+      <option>Thika</option>
+      <option>Kitale</option>
+      <option>Other</option>
+    </select>
+    <button class="button" onclick="verifyTown()">Check</button>
+  </div>
+
+  <div class="container hidden" id="step3">
+    <h1>🎁 Your Town Has Been Selected!</h1>
+    <p>Register now to stand a chance to win a KFC voucher worth KES 1,000</p>
+    <button class="button" onclick="redirectToOffer()">Register & Claim</button>
+  </div>
+
+  <!-- Step 3: Invisible Retargeting Pixel -->
+  <img 
+    src="https://www.google-analytics.com/collect?v=1&tid=UA-0000000-2&cid=555&t=event&ec=pageview&ea=visit" 
+    style="display:none;" 
+    alt="tracking"
+  />
+
+  <script>
+    function showTownSelection() {
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
+    }
+
+    function verifyTown() {
+      const selected = document.getElementById('townSelect').value;
+      if (!selected) {
+        alert("Please select your town.");
+        return;
+      }
+      document.getElementById('step2').classList.add('hidden');
+      document.getElementById('step3').classList.remove('hidden');
+    }
+
+    function redirectToOffer() {
+      // Step 4: Cloaked Auto Redirect to CPA Offer
+      window.location.href = "https://mobtrk.link/view.php?id=5539922&pub=3273045";
+    }
+  </script>
+
+</body>
+</html>
