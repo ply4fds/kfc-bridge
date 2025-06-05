@@ -1,119 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KFC Kenya Giveaway</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KFC Gift Voucher</title>
   <style>
     body {
-      background-color: #fff8f0;
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 120px;
+      background: #fff6f6;
       margin: 0;
+      padding: 0;
+      text-align: center;
     }
 
-    .branding {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 3em;
-      font-weight: bold;
+    .header {
+      background: #d62828;
       color: white;
-      background-color: red;
-      padding: 10px 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      padding: 1.5rem;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: left;
+      padding-left: 2rem;
+    }
+
+    .container {
+      padding: 2rem;
     }
 
     h1 {
-      font-size: 1.8em;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #222;
+    }
+
+    p {
+      font-size: 1.2rem;
       color: #333;
     }
 
-    .main-btn, .claim-btn {
-      background-color: red;
+    .button {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background-color: #ef233c;
       color: white;
-      padding: 15px 30px;
-      font-size: 1.2em;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      margin-top: 20px;
+    }
+
+    .button:hover {
+      background-color: #d90429;
+    }
+
+    .hidden {
+      display: none;
     }
 
     select {
-      padding: 12px;
-      font-size: 1em;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      width: 80%;
-      max-width: 300px;
-    }
-
-    #step2, #step3 {
-      display: none;
-      margin-top: 30px;
-    }
-
-    .message {
-      font-size: 1.1em;
-      color: green;
-      margin-top: 20px;
+      padding: 0.8rem;
+      font-size: 1rem;
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
 
-  <div class="branding">KFC</div>
+  <div class="header">KFC</div>
 
-  <h1>🍗 Win a KFC Meal Worth KSh 1,000!</h1>
-  <p>Select your nearest town to see if your area has been chosen in this worldwide offer.</p>
+  <div class="container" id="step1">
+    <h1>🎉 You’ve Been Selected for a KFC Voucher!</h1>
+    <p>Select your nearest hometown to check eligibility in this limited worldwide campaign:</p>
+    <button class="button" onclick="showTownSelection()">Select Hometown</button>
+  </div>
 
-  <button class="main-btn" onclick="showStep2()">Select Your Hometown</button>
-
-  <div id="step2">
-    <br>
-    <select id="county">
+  <div class="container hidden" id="step2">
+    <h1>Select Your Nearest Town</h1>
+    <select id="townSelect">
       <option value="">-- Choose your town --</option>
       <option>Nairobi</option>
       <option>Mombasa</option>
       <option>Kisumu</option>
-      <option>Meru</option>
       <option>Nakuru</option>
       <option>Eldoret</option>
       <option>Thika</option>
-      <option>Nyeri</option>
       <option>Kitale</option>
-      <option>Kericho</option>
-      <option>Garissa</option>
-      <option>Machakos</option>
-    </select><br><br>
-    <button class="claim-btn" onclick="showStep3()">Check Eligibility</button>
+      <option>Other</option>
+    </select>
+    <button class="button" onclick="verifyTown()">Check</button>
   </div>
 
-  <div id="step3">
-    <div class="message">
-      🎉 Your town has been selected!<br><br>
-      Register now to stand a chance to win your KSh 1,000 KFC voucher.
-    </div><br>
-    <a href="https://mobtrk.link/view.php?id=5539922&pub=3273045">
-      <button class="main-btn">Register Now</button>
-    </a>
+  <div class="container hidden" id="step3">
+    <h1>🎁 Your Town Has Been Selected!</h1>
+    <p>Register now to stand a chance to win a KFC voucher worth KES 1,000</p>
+    <button class="button" onclick="redirectToOffer()">Register & Claim</button>
   </div>
+
+  <!-- Step 3: Invisible Retargeting Pixel -->
+  <img 
+    src="https://www.google-analytics.com/collect?v=1&tid=UA-0000000-2&cid=555&t=event&ec=pageview&ea=visit" 
+    style="display:none;" 
+    alt="tracking"
+  />
 
   <script>
-    function showStep2() {
-      document.getElementById("step2").style.display = "block";
+    function showTownSelection() {
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
     }
 
-    function showStep3() {
-      var county = document.getElementById("county").value;
-      if (county === "") {
-        alert("Please select your town first.");
-      } else {
-        document.getElementById("step3").style.display = "block";
+    function verifyTown() {
+      const selected = document.getElementById('townSelect').value;
+      if (!selected) {
+        alert("Please select your town.");
+        return;
       }
+      document.getElementById('step2').classList.add('hidden');
+      document.getElementById('step3').classList.remove('hidden');
+    }
+
+    function redirectToOffer() {
+      // Step 4: Cloaked Auto Redirect to CPA Offer
+      window.location.href = "https://mobtrk.link/view.php?id=5539922&pub=3273045";
     }
   </script>
 
